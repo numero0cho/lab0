@@ -103,10 +103,10 @@ int main(void)
 	// Assign the TRISB bit for this pin to configure this port as an input.
 	TRISBbits.TRISB5 = 1;
 	
-    CNPU1bits.CN5PUE = 1;
-    CNEN1bits.CN5IE = 1;
-    IFS1bits.CNIF = 0;
-    IEC1bits.CNIE = 1;
+    CNPU2bits.CN27PUE = 1;		// enabling pull-up for interrupt
+    CNEN2bits.CN27IE = 1;		// enabling the interrupt
+    IFS1bits.CNIF = 0;			// setting the flag to 0
+    IEC1bits.CNIE = 1;			// enabling the interrupt on SW1 press
 
 	// Clear Timer value (i.e. current tiemr value) to 0
 	TMR1 = 0;				
@@ -187,10 +187,6 @@ int main(void)
 	LATBbits.LATB14 = 1;
 	LATBbits.LATB15 = 1;
 
-    
-
-	
-
 	// The main loop for your microcontroller should not exit (return), as
 	// the program should run as long as the device is powered on. 
 	while(1)
@@ -269,7 +265,7 @@ void _ISR _T1Interrupt(void)
 
 void __attribute__((interrupt)) _CNInterrupt(void){
     IFS1bits.CNIF = 0;
-    if(PORTBbits.RB5 == 1){
+    if(PORTBbits.RB5 == 0){
 		TMR1 = 0;
         PR1 = 7200;
     }
