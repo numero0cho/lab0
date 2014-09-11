@@ -181,6 +181,7 @@ int main(void)
 	LATBbits.LATB13 = 1;
 	LATBbits.LATB14 = 1;
 	LATBbits.LATB15 = 1;
+
 	// The main loop for your microcontroller should not exit (return), as
 	// the program should run as long as the device is powered on. 
 	while(1)
@@ -196,8 +197,13 @@ int main(void)
 			// U1RXREG stores the last character received by the UART. Read this 
 			// value into a local variable before processing.
 			receivedChar = U1RXREG;
+			U1RXREG = 1;
 			
-
+			LATBbits.LATB12 = 1;
+			LATBbits.LATB13 = 1;
+			LATBbits.LATB14 = 1;
+			LATBbits.LATB15 = 1;
+		
 			// Echo the entered character so the user knows what they typed.
 			printf("%c\n\r", receivedChar);
 
@@ -246,7 +252,7 @@ void _ISR _T1Interrupt(void)
 {
 	// Clear Timer 1 interrupt flag to allow another Timer 1 interrupt to occur.
 	IFS0bits.T1IF = 0;		
-	
+
 	// Toggle the LED Specified by the User.
 	LATB ^= ((0x1000)<<(7-ledToToggle));
 }
