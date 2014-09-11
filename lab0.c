@@ -176,7 +176,11 @@ int main(void)
 
 	// Print a message requesting the user to select a LED to toggle.
 	printf("Select LED to Toggle (4-7): ");
-
+	
+	LATBbits.LATB12 = 1;
+	LATBbits.LATB13 = 1;
+	LATBbits.LATB14 = 1;
+	LATBbits.LATB15 = 1;
 	// The main loop for your microcontroller should not exit (return), as
 	// the program should run as long as the device is powered on. 
 	while(1)
@@ -186,13 +190,13 @@ int main(void)
 		// will blink twice as fast. When SW1 is released the LEDs will blink at 
 		// the initially defined rate.
 
-
 		// Use the UART RX interrupt flag to wait until we recieve a character.
 		if(IFS0bits.U1RXIF == 1) {	
-
+			
 			// U1RXREG stores the last character received by the UART. Read this 
 			// value into a local variable before processing.
 			receivedChar = U1RXREG;
+			
 
 			// Echo the entered character so the user knows what they typed.
 			printf("%c\n\r", receivedChar);
