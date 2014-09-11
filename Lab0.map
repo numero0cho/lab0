@@ -1,4 +1,4 @@
-Microchip Technology Inc, vj[
+Microchip Technology Inc, vjv
 
 Tool Name:
   c:\program files (x86)\microchip\xc16\v1.21\bin\bin\..\bin/coff-ld.exe
@@ -68,10 +68,10 @@ section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200               0x92a           0xdbf  (3519)
 .const                       0xb2a                0x58            0x84  (132)
-.text                        0xb82                0xde           0x14d  (333)
-.dinit                       0xc60                0xcc           0x132  (306)
+.text                        0xb82               0x112           0x19b  (411)
+.dinit                       0xc94                0xcc           0x132  (306)
 
-                     Total program memory used (bytes):         0x10c2  (4290) 6%
+                     Total program memory used (bytes):         0x1110  (4368) 6%
 
 
 Data Memory  [Origin = 0x800, Length = 0x2000]
@@ -124,8 +124,8 @@ External Symbols in Program Memory (by address):
 
                   0x000200                  __resetPRI
                   0x000226                  __psv_init
-                  0x000236                  __data_init_standard
                   0x000236                  __data_init
+                  0x000236                  __data_init_standard
                   0x000294                  __DefaultInterrupt
                   0x000368                  ___udivmoddi3
                   0x0003f0                  ___udivdi3
@@ -135,12 +135,14 @@ External Symbols in Program Memory (by address):
                   0x000508                  __printf_cdnopuxX
                   0x000516                  __vfprintf_cdnopuxX
                   0x000b82                  _main
-                  0x000c3c                  __T1Interrupt
+                  0x000c40                  __T1Interrupt
+                  0x000c64                  __CNInterrupt
 
 External Symbols in Program Memory (by name):
 
+                  0x000c64                  __CNInterrupt
                   0x000294                  __DefaultInterrupt
-                  0x000c3c                  __T1Interrupt
+                  0x000c40                  __T1Interrupt
                   0x000406                  ___divdi3
                   0x000434                  ___moddi3
                   0x0003f0                  ___udivdi3
@@ -287,7 +289,7 @@ __CONFIG1         0x00abfe          0x2
                   0x000014          0x4 LONG 0x294 DEFINED (__INT0Interrupt)?ABSOLUTE (__INT0Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000016          0x4 LONG 0x294 DEFINED (__IC1Interrupt)?ABSOLUTE (__IC1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000018          0x4 LONG 0x294 DEFINED (__OC1Interrupt)?ABSOLUTE (__OC1Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x00001a          0x4 LONG 0xc3c DEFINED (__T1Interrupt)?ABSOLUTE (__T1Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00001a          0x4 LONG 0xc40 DEFINED (__T1Interrupt)?ABSOLUTE (__T1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00001c          0x4 LONG 0x294 DEFINED (__Interrupt4)?ABSOLUTE (__Interrupt4):ABSOLUTE (__DefaultInterrupt)
                   0x00001e          0x4 LONG 0x294 DEFINED (__IC2Interrupt)?ABSOLUTE (__IC2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000020          0x4 LONG 0x294 DEFINED (__OC2Interrupt)?ABSOLUTE (__OC2Interrupt):ABSOLUTE (__DefaultInterrupt)
@@ -303,7 +305,7 @@ __CONFIG1         0x00abfe          0x2
                   0x000034          0x4 LONG 0x294 DEFINED (__SI2C1Interrupt)?ABSOLUTE (__SI2C1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000036          0x4 LONG 0x294 DEFINED (__MI2C1Interrupt)?ABSOLUTE (__MI2C1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000038          0x4 LONG 0x294 DEFINED (__CompInterrupt)?ABSOLUTE (__CompInterrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x00003a          0x4 LONG 0x294 DEFINED (__CNInterrupt)?ABSOLUTE (__CNInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00003a          0x4 LONG 0xc64 DEFINED (__CNInterrupt)?ABSOLUTE (__CNInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00003c          0x4 LONG 0x294 DEFINED (__INT1Interrupt)?ABSOLUTE (__INT1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00003e          0x4 LONG 0x294 DEFINED (__Interrupt21)?ABSOLUTE (__Interrupt21):ABSOLUTE (__DefaultInterrupt)
                   0x000040          0x4 LONG 0x294 DEFINED (__Interrupt22)?ABSOLUTE (__Interrupt22):ABSOLUTE (__DefaultInterrupt)
@@ -415,7 +417,7 @@ __CONFIG1         0x00abfe          0x2
                   0x000114          0x4 LONG 0x294 DEFINED (__AltINT0Interrupt)?ABSOLUTE (__AltINT0Interrupt):DEFINED (__INT0Interrupt)?ABSOLUTE (__INT0Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000116          0x4 LONG 0x294 DEFINED (__AltIC1Interrupt)?ABSOLUTE (__AltIC1Interrupt):DEFINED (__IC1Interrupt)?ABSOLUTE (__IC1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000118          0x4 LONG 0x294 DEFINED (__AltOC1Interrupt)?ABSOLUTE (__AltOC1Interrupt):DEFINED (__OC1Interrupt)?ABSOLUTE (__OC1Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x00011a          0x4 LONG 0xc3c DEFINED (__AltT1Interrupt)?ABSOLUTE (__AltT1Interrupt):DEFINED (__T1Interrupt)?ABSOLUTE (__T1Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00011a          0x4 LONG 0xc40 DEFINED (__AltT1Interrupt)?ABSOLUTE (__AltT1Interrupt):DEFINED (__T1Interrupt)?ABSOLUTE (__T1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00011c          0x4 LONG 0x294 DEFINED (__AltInterrupt4)?ABSOLUTE (__AltInterrupt4):DEFINED (__Interrupt4)?ABSOLUTE (__Interrupt4):ABSOLUTE (__DefaultInterrupt)
                   0x00011e          0x4 LONG 0x294 DEFINED (__AltIC2Interrupt)?ABSOLUTE (__AltIC2Interrupt):DEFINED (__IC2Interrupt)?ABSOLUTE (__IC2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000120          0x4 LONG 0x294 DEFINED (__AltOC2Interrupt)?ABSOLUTE (__AltOC2Interrupt):DEFINED (__OC2Interrupt)?ABSOLUTE (__OC2Interrupt):ABSOLUTE (__DefaultInterrupt)
@@ -431,7 +433,7 @@ __CONFIG1         0x00abfe          0x2
                   0x000134          0x4 LONG 0x294 DEFINED (__AltSI2C1Interrupt)?ABSOLUTE (__AltSI2C1Interrupt):DEFINED (__SI2C1Interrupt)?ABSOLUTE (__SI2C1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000136          0x4 LONG 0x294 DEFINED (__AltMI2C1Interrupt)?ABSOLUTE (__AltMI2C1Interrupt):DEFINED (__MI2C1Interrupt)?ABSOLUTE (__MI2C1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000138          0x4 LONG 0x294 DEFINED (__AltCompInterrupt)?ABSOLUTE (__AltCompInterrupt):DEFINED (__CompInterrupt)?ABSOLUTE (__CompInterrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x00013a          0x4 LONG 0x294 DEFINED (__AltCNInterrupt)?ABSOLUTE (__AltCNInterrupt):DEFINED (__CNInterrupt)?ABSOLUTE (__CNInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00013a          0x4 LONG 0xc64 DEFINED (__AltCNInterrupt)?ABSOLUTE (__AltCNInterrupt):DEFINED (__CNInterrupt)?ABSOLUTE (__CNInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00013c          0x4 LONG 0x294 DEFINED (__AltINT1Interrupt)?ABSOLUTE (__AltINT1Interrupt):DEFINED (__INT1Interrupt)?ABSOLUTE (__INT1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00013e          0x4 LONG 0x294 DEFINED (__AltInterrupt21)?ABSOLUTE (__AltInterrupt21):DEFINED (__Interrupt21)?ABSOLUTE (__Interrupt21):ABSOLUTE (__DefaultInterrupt)
                   0x000140          0x4 LONG 0x294 DEFINED (__AltInterrupt22)?ABSOLUTE (__AltInterrupt22):DEFINED (__Interrupt22)?ABSOLUTE (__Interrupt22):ABSOLUTE (__DefaultInterrupt)
@@ -1177,10 +1179,11 @@ __c30_signature
 .const              0x8b2a         0x58 load address 0x000b2a  
  .const             0x8b2a         0x58 lab0.o
 
-.text             0x000b82         0xde
- .text            0x000b82         0xde lab0.o
+.text             0x000b82        0x112
+ .text            0x000b82        0x112 lab0.o
                   0x000b82                  main
-                  0x000c3c                  _T1Interrupt
+                  0x000c40                  _T1Interrupt
+                  0x000c64                  _CNInterrupt
 
-.dinit            0x000c60         0xcc
- .dinit           0x000c60         0xcc data_init
+.dinit            0x000c94         0xcc
+ .dinit           0x000c94         0xcc data_init

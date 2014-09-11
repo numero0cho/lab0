@@ -102,6 +102,11 @@ int main(void)
 	// **TODO** SW1 of the 16-bit 28-pin Starter Board is connected to pin RB??. 
 	// Assign the TRISB bit for this pin to configure this port as an input.
 	TRISBbits.TRISB5 = 1;
+	
+    CNPU1bits.CN5PUE = 1;
+    CNEN1bits.CN5IE = 1;
+    IFS1bits.CNIF = 0;
+    IEC1bits.CNIE = 1;
 
 	// Clear Timer value (i.e. current tiemr value) to 0
 	TMR1 = 0;				
@@ -177,10 +182,14 @@ int main(void)
 	// Print a message requesting the user to select a LED to toggle.
 	printf("Select LED to Toggle (4-7): ");
 	
-	LATBbits.LATB12 = 1;
-	LATBbits.LATB13 = 1;
+	LATBbits.LATB12 = 1;	// setting the latch register to have the LEDs
+	LATBbits.LATB13 = 1;	// start off in the "off" position
 	LATBbits.LATB14 = 1;
 	LATBbits.LATB15 = 1;
+
+    
+
+	
 
 	// The main loop for your microcontroller should not exit (return), as
 	// the program should run as long as the device is powered on. 
@@ -197,11 +206,10 @@ int main(void)
 			// U1RXREG stores the last character received by the UART. Read this 
 			// value into a local variable before processing.
 			receivedChar = U1RXREG;
-			U1RXREG = 1;
 			
-			LATBbits.LATB12 = 1;
-			LATBbits.LATB13 = 1;
-			LATBbits.LATB14 = 1;
+			LATBbits.LATB12 = 1;	// upon receiving a new character, resets
+			LATBbits.LATB13 = 1;	// the LEDs to off so that only the new character
+			LATBbits.LATB14 = 1;	// (LED) will be blinking 
 			LATBbits.LATB15 = 1;
 		
 			// Echo the entered character so the user knows what they typed.
@@ -258,3 +266,15 @@ void _ISR _T1Interrupt(void)
 }
 
 // ******************************************************************************************* //
+
+void __attribute__((interrupt)) _CNInterrupt(void){
+    IFS1bits.CNIF = 0;
+    if(PORTBbits.RB5 == 1){
+		TMR1 = 0;
+        PR1 = 7200;
+    }
+    else{
+		TMR1 = 0;
+		PR1 = 14400;
+    }
+}
