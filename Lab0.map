@@ -1,4 +1,4 @@
-Microchip Technology Inc, vj9
+Microchip Technology Inc, vjX
 
 Tool Name:
   c:\program files (x86)\microchip\xc16\v1.21\bin\bin\..\bin/coff-ld.exe
@@ -68,10 +68,10 @@ section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200               0x92a           0xdbf  (3519)
 .const                       0xb2a                0x58            0x84  (132)
-.text                        0xb82               0x110           0x198  (408)
-.dinit                       0xc92                0xcc           0x132  (306)
+.text                        0xb82               0x108           0x18c  (396)
+.dinit                       0xc8a                0xcc           0x132  (306)
 
-                     Total program memory used (bytes):         0x110d  (4365) 6%
+                     Total program memory used (bytes):         0x1101  (4353) 6%
 
 
 Data Memory  [Origin = 0x800, Length = 0x2000]
@@ -1179,11 +1179,11 @@ __c30_signature
 .const              0x8b2a         0x58 load address 0x000b2a  
  .const             0x8b2a         0x58 lab0.o
 
-.text             0x000b82        0x110
- .text            0x000b82        0x110 lab0.o
+.text             0x000b82        0x108
+ .text            0x000b82        0x108 lab0.o
                   0x000b82                  main
                   0x000c3e                  _T1Interrupt
                   0x000c62                  _CNInterrupt
 
-.dinit            0x000c92         0xcc
- .dinit           0x000c92         0xcc data_init
+.dinit            0x000c8a         0xcc
+ .dinit           0x000c8a         0xcc data_init

@@ -266,11 +266,11 @@ void _ISR _T1Interrupt(void)
 void __attribute__((interrupt)) _CNInterrupt(void){
     IFS1bits.CNIF = 0;								// resetting the change flag 
     if(PORTBbits.RB5 == 0){							// if the button is pressed
-		TMR1 = 0;									// reset timer register
+	//	TMR1 = 0;									// reset timer register
         PR1 = 7200;									// half time for period (blink 2x)
     }
     else{											// if button is not pressed/released
-		TMR1 = 0;									// reset the timer register
+	//	TMR1 = 0;									// reset the timer register
 		PR1 = 14400;								// reset the period (blink 1x)
     }
 }
