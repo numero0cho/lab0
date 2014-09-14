@@ -102,6 +102,10 @@ int main(void)
 	// **TODO** SW1 of the 16-bit 28-pin Starter Board is connected to pin RB??. 
 	// Assign the TRISB bit for this pin to configure this port as an input.
 	TRISBbits.TRISB5 = 1;
+	
+    CNEN2bits.CN27IE = 1;		// enabling the interrupt for the bit's change notification
+    IFS1bits.CNIF = 0;			// setting the flag to 0
+    IEC1bits.CNIE = 1;			// enabling the interrupt on SW1 press (change notification)
 
 	// Clear Timer value (i.e. current tiemr value) to 0
 	TMR1 = 0;				
@@ -176,6 +180,11 @@ int main(void)
 
 	// Print a message requesting the user to select a LED to toggle.
 	printf("Select LED to Toggle (4-7): ");
+	
+	LATBbits.LATB12 = 1;	// setting the latch register to have the LEDs
+	LATBbits.LATB13 = 1;	// start off in the "off" position
+	LATBbits.LATB14 = 1;
+	LATBbits.LATB15 = 1;
 
 	// The main loop for your microcontroller should not exit (return), as
 	// the program should run as long as the device is powered on. 
@@ -186,14 +195,18 @@ int main(void)
 		// will blink twice as fast. When SW1 is released the LEDs will blink at 
 		// the initially defined rate.
 
-
 		// Use the UART RX interrupt flag to wait until we recieve a character.
 		if(IFS0bits.U1RXIF == 1) {	
-
+			
 			// U1RXREG stores the last character received by the UART. Read this 
 			// value into a local variable before processing.
 			receivedChar = U1RXREG;
-
+			
+			LATBbits.LATB12 = 1;	// upon receiving a new character, resets
+			LATBbits.LATB13 = 1;	// the LEDs to off so that only the new character
+			LATBbits.LATB14 = 1;	// (LED) will be blinking 
+			LATBbits.LATB15 = 1;
+		
 			// Echo the entered character so the user knows what they typed.
 			printf("%c\n\r", receivedChar);
 
@@ -242,9 +255,22 @@ void _ISR _T1Interrupt(void)
 {
 	// Clear Timer 1 interrupt flag to allow another Timer 1 interrupt to occur.
 	IFS0bits.T1IF = 0;		
-	
+
 	// Toggle the LED Specified by the User.
 	LATB ^= ((0x1000)<<(7-ledToToggle));
 }
 
 // ******************************************************************************************* //
+
+// verbose call for change notification interrupt
+void __attribute__((interrupt)) _CNInterrupt(void){
+    IFS1bits.CNIF = 0;								// resetting the change flag 
+    if(PORTBbits.RB5 == 0){							// if the button is pressed
+		TMR1 = 0;									// reset timer register
+        PR1 = 7200;									// half time for period (blink 2x)
+    }
+    else{											// if button is not pressed/released
+		TMR1 = 0;									// reset the timer register
+		PR1 = 14400;								// reset the period (blink 1x)
+    }
+}

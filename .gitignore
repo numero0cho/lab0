@@ -1,7 +1,10 @@
 *.cof
 *.hex
+<<<<<<< HEAD
 *.map
 *.mcp
 *.mcs
 *.mcw
+=======
+>>>>>>> Timer_change
 *.o
