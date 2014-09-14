@@ -103,10 +103,9 @@ int main(void)
 	// Assign the TRISB bit for this pin to configure this port as an input.
 	TRISBbits.TRISB5 = 1;
 	
-    CNPU2bits.CN27PUE = 1;		// enabling pull-up for interrupt
-    CNEN2bits.CN27IE = 1;		// enabling the interrupt
+    CNEN2bits.CN27IE = 1;		// enabling the interrupt for the bit's change notification
     IFS1bits.CNIF = 0;			// setting the flag to 0
-    IEC1bits.CNIE = 1;			// enabling the interrupt on SW1 press
+    IEC1bits.CNIE = 1;			// enabling the interrupt on SW1 press (change notification)
 
 	// Clear Timer value (i.e. current tiemr value) to 0
 	TMR1 = 0;				
@@ -263,14 +262,15 @@ void _ISR _T1Interrupt(void)
 
 // ******************************************************************************************* //
 
+// verbose call for change notification interrupt
 void __attribute__((interrupt)) _CNInterrupt(void){
-    IFS1bits.CNIF = 0;
-    if(PORTBbits.RB5 == 0){
-		TMR1 = 0;
-        PR1 = 7200;
+    IFS1bits.CNIF = 0;								// resetting the change flag 
+    if(PORTBbits.RB5 == 0){							// if the button is pressed
+		TMR1 = 0;									// reset timer register
+        PR1 = 7200;									// half time for period (blink 2x)
     }
-    else{
-		TMR1 = 0;
-		PR1 = 14400;
+    else{											// if button is not pressed/released
+		TMR1 = 0;									// reset the timer register
+		PR1 = 14400;								// reset the period (blink 1x)
     }
 }
