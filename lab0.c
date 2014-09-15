@@ -3,7 +3,7 @@
 // File:         lab0.c   
 // Date:         08-20-2010
 // Authors:      Roman Lysecky 
-// Revised:		 08-27-2013 (R. Thamvichai)
+// Revised:		 09/15/2014 (Nicolas Fajardo)
 //
 // Description:  Software code for Lab 0 assignment for ECE 372 Fall 2010. Sample code toggles 
 //               a user specified LED on the Microchip 16-bit 28-pin starter board. The user
