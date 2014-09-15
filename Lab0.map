@@ -1,4 +1,4 @@
-Microchip Technology Inc, vj9
+Microchip Technology Inc, v@}\
 
 Tool Name:
   c:\program files (x86)\microchip\xc16\v1.21\bin\bin\..\bin/coff-ld.exe
@@ -25,9 +25,6 @@ Command:
   -LC:\Program Files (x86)\Microchip\xc16\v1.21\lib \
   -Tp24FJ64GA002.gld.00 \
   --defsym=__MPLAB_BUILD=1 \
-  --defsym=__MPLAB_DEBUG=1 \
-  --defsym=__MPLAB_DEBUGGER_PK3=1 \
-  --defsym=__ICD2RAM=1 \
   --heap=512 \
   -Map=Lab0.map \
   --report-mem \
@@ -78,47 +75,46 @@ Data Memory  [Origin = 0x800, Length = 0x2000]
 
 section                    address      alignment gaps    total length  (dec)
 -------                    -------      --------------    -------------------
-.icd                         0x800                0x50            0x50  (80)
-.ndata                       0x850                   0             0x2  (2)
-.data.dpowers                0x852                   0            0xa0  (160)
-.data                        0x8f2                   0            0x2a  (42)
-.data._iob                   0x91c                   0            0x26  (38)
-.bss                         0x942                   0             0x6  (6)
-.data                        0x948                   0             0x2  (2)
-.heap                        0x94a                   0           0x200  (512)
+.ndata                       0x800                   0             0x2  (2)
+.data.dpowers                0x802                   0            0xa0  (160)
+.data                        0x8a2                   0            0x2a  (42)
+.data._iob                   0x8cc                   0            0x26  (38)
+.bss                         0x8f2                   0             0x6  (6)
+.data                        0x8f8                   0             0x2  (2)
+.heap                        0x8fa                   0           0x200  (512)
 
-                        Total data memory used (bytes):          0x34a  (842) 10%
+                        Total data memory used (bytes):          0x2fa  (762) 9%
 
 
 Dynamic Memory Usage
 
 region                     address                      maximum length  (dec)
 ------                     -------                      ---------------------
-heap                         0x94a                               0x200  (512)
-stack                        0xb4a                              0x1cb6  (7350)
+heap                         0x8fa                               0x200  (512)
+stack                        0xafa                              0x1d06  (7430)
 
-                        Maximum dynamic memory (bytes):         0x1eb6  (7862)
+                        Maximum dynamic memory (bytes):         0x1f06  (7942)
 
 
 External Symbols in Data Memory (by address):
 
-                    0x0850                  _ledToToggle
-                    0x091c                  __iob
-                    0x0940                  __Files
-                    0x0942                  __outdone
-                    0x0943                  __sibuf
-                    0x0945                  __sobuf
-                    0x0948                  ___C30_UART
+                    0x0800                  _ledToToggle
+                    0x08cc                  __iob
+                    0x08f0                  __Files
+                    0x08f2                  __outdone
+                    0x08f3                  __sibuf
+                    0x08f5                  __sobuf
+                    0x08f8                  ___C30_UART
 
 External Symbols in Data Memory (by name):
 
-                    0x0940                  __Files
-                    0x0948                  ___C30_UART
-                    0x091c                  __iob
-                    0x0942                  __outdone
-                    0x0943                  __sibuf
-                    0x0945                  __sobuf
-                    0x0850                  _ledToToggle
+                    0x08f0                  __Files
+                    0x08f8                  ___C30_UART
+                    0x08cc                  __iob
+                    0x08f2                  __outdone
+                    0x08f3                  __sibuf
+                    0x08f5                  __sobuf
+                    0x0800                  _ledToToggle
 
 External Symbols in Program Memory (by address):
 
@@ -238,10 +234,6 @@ __CONFIG2         0x00abfc          0x2
 __CONFIG1         0x00abfe          0x2
  *(__CONFIG1.sec*)
  __CONFIG1.sec    0x00abfe          0x2 lab0.o
-
-.icd                0x0800         0x50
-                    0x0850                  . = (. + DEFINED (__ICD2RAM)?0x50:0x0)
- *fill*             0x0800         0x5000
 
 .comment
  *(.comment)
@@ -1109,9 +1101,6 @@ __CONFIG1         0x00abfe          0x2
                     0x0230                  UART2 = 0x230
                     0x0230                  _UART2 = 0x230
                     0x0001                  __MPLAB_BUILD = 0x1
-                    0x0001                  __MPLAB_DEBUG = 0x1
-                    0x0001                  __MPLAB_DEBUGGER_PK3 = 0x1
-                    0x0001                  __ICD2RAM = 0x1
 START GROUP
 LOAD c:/program files (x86)/microchip/xc16/v1.21/bin/bin/../../lib\libfx-coff.a
 LOAD c:/program files (x86)/microchip/xc16/v1.21/bin/bin/../../lib\libpic30-coff.a
@@ -1148,33 +1137,33 @@ __c30_signature
  __c30_signature
                   0x00003c          0x6 c:/program files (x86)/microchip/xc16/v1.21/bin/bin/../../lib\libm-coff.a(divmoddi3.o)
 
-.ndata              0x0850          0x2
- .ndata             0x0850          0x2 lab0.o
-                    0x0850                  ledToToggle
+.ndata              0x0800          0x2
+ .ndata             0x0800          0x2 lab0.o
+                    0x0800                  ledToToggle
 
-.data.dpowers       0x0852         0xa0
- .data.dpowers      0x0852         0xa0 c:/program files (x86)/microchip/xc16/v1.21/bin/bin/../../lib\libc-coff.a(doprnt_cdnopuxX.XXo)
+.data.dpowers       0x0802         0xa0
+ .data.dpowers      0x0802         0xa0 c:/program files (x86)/microchip/xc16/v1.21/bin/bin/../../lib\libc-coff.a(doprnt_cdnopuxX.XXo)
 
-.data               0x08f2         0x2a
- .data              0x08f2         0x2a c:/program files (x86)/microchip/xc16/v1.21/bin/bin/../../lib\libc-coff.a(doprnt_cdnopuxX.XXo)
+.data               0x08a2         0x2a
+ .data              0x08a2         0x2a c:/program files (x86)/microchip/xc16/v1.21/bin/bin/../../lib\libc-coff.a(doprnt_cdnopuxX.XXo)
 
-.data._iob          0x091c         0x26
- .data._iob         0x091c         0x26 c:/program files (x86)/microchip/xc16/v1.21/bin/bin/../../lib\libc-coff.a(_iob.o)
-                    0x091c                  _iob
-                    0x0940                  _Files
+.data._iob          0x08cc         0x26
+ .data._iob         0x08cc         0x26 c:/program files (x86)/microchip/xc16/v1.21/bin/bin/../../lib\libc-coff.a(_iob.o)
+                    0x08cc                  _iob
+                    0x08f0                  _Files
 
-.bss                0x0942          0x6
- .bss               0x0942          0x6 c:/program files (x86)/microchip/xc16/v1.21/bin/bin/../../lib\libc-coff.a(_iob.o)
-                    0x0942                  _outdone
-                    0x0943                  _sibuf
-                    0x0945                  _sobuf
+.bss                0x08f2          0x6
+ .bss               0x08f2          0x6 c:/program files (x86)/microchip/xc16/v1.21/bin/bin/../../lib\libc-coff.a(_iob.o)
+                    0x08f2                  _outdone
+                    0x08f3                  _sibuf
+                    0x08f5                  _sobuf
 
-.data               0x0948          0x2
- .data              0x0948          0x2 c:/program files (x86)/microchip/xc16/v1.21/bin/bin/../../lib\libpic30-coff.a(c30_uart.o)
-                    0x0948                  __C30_UART
+.data               0x08f8          0x2
+ .data              0x08f8          0x2 c:/program files (x86)/microchip/xc16/v1.21/bin/bin/../../lib\libpic30-coff.a(c30_uart.o)
+                    0x08f8                  __C30_UART
 
-.heap               0x094a        0x200
- .heap              0x094a        0x200 heap
+.heap               0x08fa        0x200
+ .heap              0x08fa        0x200 heap
 
 .const              0x8b2a         0x58 load address 0x000b2a  
  .const             0x8b2a         0x58 lab0.o
