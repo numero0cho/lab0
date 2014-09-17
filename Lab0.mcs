@@ -13,7 +13,7 @@ SOLK=<src>|lab0.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
 ToolArgsString=-g -Wall
 TraceCmdString=
-DebugOptions=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PK3=1
 [File001]
 Location=C:\Users\Nico\Documents\UA\5th Semester\ECE 372\Lab0\Lab0.cof
 Folder=Output
@@ -26,7 +26,7 @@ SOLK=<src>|lab0.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
 ToolArgsString=--heap=512 -Map="$(BINDIR_)$(TARGETBASE).map" --report-mem -o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)"
 TraceCmdString=
-DebugOptions=
+DebugOptions=--defsym=__MPLAB_DEBUG=1 --defsym=__MPLAB_DEBUGGER_PK3=1 --defsym=__ICD2RAM=1
 [File002]
 Location=C:\Users\Nico\Documents\UA\5th Semester\ECE 372\Lab0\Lab0.hex
 Folder=Output
@@ -39,7 +39,7 @@ SOLK=<src>|lab0.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
 ToolArgsString=--heap=512 -Map="$(BINDIR_)$(TARGETBASE).map" --report-mem -o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)"
 TraceCmdString=
-DebugOptions=
+DebugOptions=--defsym=__MPLAB_DEBUG=1 --defsym=__MPLAB_DEBUGGER_PK3=1 --defsym=__ICD2RAM=1
 [TOOL_LOC_STAMPS]
 tool_loc{B1442D91-FF1F-4E60-9714-C39C1BA9DB62}=C:\Program Files (x86)\Microchip\xc16\v1.21\bin\xc16-gcc.exe
 tool_loc{6836D8CA-42BB-48FB-9E77-3F0AA8005073}=C:\Program Files (x86)\Microchip\xc16\v1.21\bin\xc16-ld.exe
